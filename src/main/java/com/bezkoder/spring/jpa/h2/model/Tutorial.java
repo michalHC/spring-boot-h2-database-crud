@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Tutorial {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
 	@Column(name = "title")
@@ -16,17 +16,29 @@ public class Tutorial {
 	@Column(name = "description")
 	private String description;
 
+/*	@Column(name = "level")
+	private int level;
+
+ */
 	@Column(name = "published")
 	private boolean published;
 
+/*
+	@Column(name="created_at")
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date createdAt;
+*/
 	public Tutorial() {
 
 	}
 
 	public Tutorial(String title, String description, boolean published) {
+		//String title, String description, int level, boolean published, Date createdAt
 		this.title = title;
 		this.description = description;
+		//this.level = level;
 		this.published = published;
+		//this.createdAt = createdAt;
 	}
 
 	public long getId() {
@@ -56,6 +68,16 @@ public class Tutorial {
 	public void setPublished(boolean isPublished) {
 		this.published = isPublished;
 	}
+	/*
+	public int getLevel() {
+		return level;
+	}
+
+	public void setLevel(int level) {
+		this.level = level;
+	}
+
+	 */
 
 	@Override
 	public String toString() {
